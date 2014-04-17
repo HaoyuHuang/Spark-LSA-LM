@@ -28,6 +28,8 @@
 		1851159818FF9EA500ACA9CF /* Spark-LSA-LM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Spark-LSA-LM"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1851159B18FF9EA500ACA9CF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1851159D18FF9EA500ACA9CF /* Spark_LSA_LM.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Spark_LSA_LM.1; sourceTree = "<group>"; };
+		185115A418FF9ECC00ACA9CF /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		185115A518FF9ECC00ACA9CF /* word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = word.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +62,20 @@
 		1851159A18FF9EA500ACA9CF /* Spark-LSA-LM */ = {
 			isa = PBXGroup;
 			children = (
+				185115A618FF9ED300ACA9CF /* utils */,
 				1851159B18FF9EA500ACA9CF /* main.cpp */,
 				1851159D18FF9EA500ACA9CF /* Spark_LSA_LM.1 */,
 			);
 			path = "Spark-LSA-LM";
+			sourceTree = "<group>";
+		};
+		185115A618FF9ED300ACA9CF /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				185115A418FF9ECC00ACA9CF /* common.h */,
+				185115A518FF9ECC00ACA9CF /* word.h */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
