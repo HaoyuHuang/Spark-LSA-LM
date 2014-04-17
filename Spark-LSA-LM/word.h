@@ -1,6 +1,8 @@
 #include <vector>
 #include "common.h"
 #include <cstring>
+#include <string>
+using namespace std;
 
 typedef struct entry
 {
@@ -9,7 +11,7 @@ typedef struct entry
 typedef struct word
 {
 	vector<matrix_entry_t> list;
-	string word;
+    string word;
 	double lsa_conf;
 	/* prob of word given document c, p(w|c)*/
 	vector<double> p_wc;
