@@ -1,5 +1,4 @@
-#include "word.h"
-#include "common.h"
+#include "lsa_math.h"
 #include <cmath>
 #include <algorithm>
 
@@ -11,6 +10,7 @@ double cal_norm(const word_t &w)
 	}
 	return sqrt(res);
 }
+
 double cosine(const word_t &w1, const word_t &w2)
 {
 	long long res = 0;

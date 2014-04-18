@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		1851159C18FF9EA500ACA9CF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1851159B18FF9EA500ACA9CF /* main.cpp */; };
 		1851159E18FF9EA500ACA9CF /* Spark_LSA_LM.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1851159D18FF9EA500ACA9CF /* Spark_LSA_LM.1 */; };
-		8591B20418FFA75300756057 /* cosine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8591B20218FFA75300756057 /* cosine.cpp */; };
+		18AB0C981901B00C00A73F96 /* libarmadillo.4.20.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB0C951901B00C00A73F96 /* libarmadillo.4.20.0.dylib */; };
+		18AB0C991901B00C00A73F96 /* libarmadillo.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB0C961901B00C00A73F96 /* libarmadillo.4.dylib */; };
+		18AB0C9A1901B00C00A73F96 /* libarmadillo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB0C971901B00C00A73F96 /* libarmadillo.dylib */; };
+		8591B20418FFA75300756057 /* lsa_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8591B20218FFA75300756057 /* lsa_math.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,10 +32,13 @@
 		1851159818FF9EA500ACA9CF /* Spark-LSA-LM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Spark-LSA-LM"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1851159B18FF9EA500ACA9CF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1851159D18FF9EA500ACA9CF /* Spark_LSA_LM.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Spark_LSA_LM.1; sourceTree = "<group>"; };
-		185115A418FF9ECC00ACA9CF /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		185115A518FF9ECC00ACA9CF /* word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = word.h; sourceTree = "<group>"; };
-		8591B20218FFA75300756057 /* cosine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cosine.cpp; sourceTree = "<group>"; };
-		8591B20318FFA75300756057 /* cosine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cosine.h; sourceTree = "<group>"; };
+		185115A418FF9ECC00ACA9CF /* lsa_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_common.h; sourceTree = "<group>"; };
+		185115A518FF9ECC00ACA9CF /* lsa_word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_word.h; sourceTree = "<group>"; };
+		18AB0C951901B00C00A73F96 /* libarmadillo.4.20.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libarmadillo.4.20.0.dylib; sourceTree = "<group>"; };
+		18AB0C961901B00C00A73F96 /* libarmadillo.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libarmadillo.4.dylib; sourceTree = "<group>"; };
+		18AB0C971901B00C00A73F96 /* libarmadillo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libarmadillo.dylib; sourceTree = "<group>"; };
+		8591B20218FFA75300756057 /* lsa_math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_math.cpp; sourceTree = "<group>"; };
+		8591B20318FFA75300756057 /* lsa_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_math.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18AB0C9A1901B00C00A73F96 /* libarmadillo.dylib in Frameworks */,
+				18AB0C991901B00C00A73F96 /* libarmadillo.4.dylib in Frameworks */,
+				18AB0C981901B00C00A73F96 /* libarmadillo.4.20.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,9 +74,9 @@
 		1851159A18FF9EA500ACA9CF /* Spark-LSA-LM */ = {
 			isa = PBXGroup;
 			children = (
+				18AB0C9B1901B01100A73F96 /* libs */,
 				185115A618FF9ED300ACA9CF /* utils */,
 				1851159B18FF9EA500ACA9CF /* main.cpp */,
-				8591B20218FFA75300756057 /* cosine.cpp */,
 				1851159D18FF9EA500ACA9CF /* Spark_LSA_LM.1 */,
 			);
 			path = "Spark-LSA-LM";
@@ -76,11 +85,22 @@
 		185115A618FF9ED300ACA9CF /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				185115A418FF9ECC00ACA9CF /* common.h */,
-				8591B20318FFA75300756057 /* cosine.h */,
-				185115A518FF9ECC00ACA9CF /* word.h */,
+				8591B20218FFA75300756057 /* lsa_math.cpp */,
+				185115A418FF9ECC00ACA9CF /* lsa_common.h */,
+				8591B20318FFA75300756057 /* lsa_math.h */,
+				185115A518FF9ECC00ACA9CF /* lsa_word.h */,
 			);
 			name = utils;
+			sourceTree = "<group>";
+		};
+		18AB0C9B1901B01100A73F96 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				18AB0C951901B00C00A73F96 /* libarmadillo.4.20.0.dylib */,
+				18AB0C961901B00C00A73F96 /* libarmadillo.4.dylib */,
+				18AB0C971901B00C00A73F96 /* libarmadillo.dylib */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8591B20418FFA75300756057 /* cosine.cpp in Sources */,
+				8591B20418FFA75300756057 /* lsa_math.cpp in Sources */,
 				1851159C18FF9EA500ACA9CF /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,14 +235,24 @@
 		185115A218FF9EA500ACA9CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Spark-LSA-LM",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/include;
 			};
 			name = Debug;
 		};
 		185115A318FF9EA500ACA9CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Spark-LSA-LM",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/include;
 			};
 			name = Release;
 		};
