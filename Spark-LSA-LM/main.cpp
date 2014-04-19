@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "armadillo"
+#include "lsa_word.h"
 
 using namespace arma;
 using namespace std;
@@ -28,11 +29,11 @@ void svd_example()
     V.print("k-document matrix:");
 }
 
-int main(int argc, const char * argv[])
+int main ()
 {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    
+    unordered_map<string, word_t> word_vector;
+    lsa_word_vector_load("/Users/apple/graduate/Courses/544NLP/Workspace/Spark-LSA-LM/Spark-LSA-LM/text.txt", word_vector);
+    cout << word_vector.find("ern")->second.total_occurance;
     return 0;
 }
 
