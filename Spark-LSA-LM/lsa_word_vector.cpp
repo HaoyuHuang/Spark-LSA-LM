@@ -97,14 +97,15 @@ void lsa_cal_confidence_val(unordered_map<string, word_t*> &word_vector, word_cn
     }
 }
 
-// calculate the context probability
-void lsa_cal_context_prob(unordered_map<string, word_t*> &word_vector, word_cnt wc, sentence_cnt sc, vector<string> context, vector<int> blank, double r)
+// calculate the context probability and the score for the sentence.
+double  lsa_cal_total_similarity_with_ngram(unordered_map<string, word_t*> &word_vector, word_cnt wc, sentence_cnt sc, vector<string> context, vector<int> blank, double r)
 {
+    double res = 0;
     int i = 0;
     // add up all context vectors
     unordered_map<uword, double> context_vec;
     for (i = 0; i < context.size(); i++) {
-        if (blank[i] == LSA_SENTENCE_BLANK) {
+        if (blank[i] == LSA_SENTENCE_CONTEXT) {
             unordered_map<string, word_t*>::const_iterator value = word_vector.find(context[i]);
             if (value != word_vector.end()) {
                 lsa_word_vector_add(*value->second, context_vec);
@@ -134,7 +135,7 @@ void lsa_cal_context_prob(unordered_map<string, word_t*> &word_vector, word_cnt 
     i = 0;
     double temp = 0;
     while (i < context.size()) {
-        if (blank[i] == LSA_SENTENCE_BLANK) {
+        if (blank[i] == LSA_SENTENCE_CONTEXT) {
             i++;
         } else {
             unordered_map<string, word_t*>::const_iterator value = word_vector.find(context[i]);
@@ -145,5 +146,27 @@ void lsa_cal_context_prob(unordered_map<string, word_t*> &word_vector, word_cnt 
             }
         }
     }
-    
+    return res;
+}
+
+// calculate the total cosine similarity for the options in the context. Each option is calculated independently and the individual cosine similarity with the context is then sumed up.
+double lsa_cal_total_similarity(unordered_map<string, word_t*> &word_vector, word_cnt wc, sentence_cnt sc, vector<string> context, vector<string> options)
+{
+    double res = 0;
+    int i = 0;
+    // add up all context vectors
+    unordered_map<uword, double> context_vec;
+    for (i = 0; i < context.size(); i++) {
+        unordered_map<string, word_t*>::const_iterator value = word_vector.find(context[i]);
+        if (value != word_vector.end()) {
+            lsa_word_vector_add(*value->second, context_vec);
+        }
+    }
+    for (i = 0; i < options.size(); i++) {
+        unordered_map<string, word_t*>::const_iterator value = word_vector.find(options[i]);
+        if (value != word_vector.end()) {
+            res += lsa_cosine(*value->second, context_vec);
+        }
+    }
+    return res;
 }
