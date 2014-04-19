@@ -9,7 +9,7 @@
 #include <iostream>
 
 #include "armadillo"
-#include "lsa_word.h"
+#include "lsa_word_vector.h"
 
 using namespace arma;
 using namespace std;

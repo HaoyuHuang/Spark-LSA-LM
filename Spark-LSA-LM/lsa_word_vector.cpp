@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Spark. All rights reserved.
 //
 
-#include "lsa_word.h"
+#include "lsa_word_vector.h"
 #include "fst_common.h"
 #include "utils.h"
 #include "lsa_common.h"
@@ -64,9 +64,9 @@ int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t *> &wor
 }
 
 // preprocess the lsa word vector by entrophy
-void lsa_entropy_preprocess(unordered_map<string, word_t*> &lsa_word_vector)
+void lsa_entropy_preprocess(unordered_map<string, word_t*> &word_vector)
 {
-    for (auto it = lsa_word_vector.begin(); it != lsa_word_vector.end(); ++it) {
+    for (auto it = word_vector.begin(); it != word_vector.end(); ++it) {
         word_t *word_r = it->second;
         unordered_map<uword, double> sentence_vector = word_r->sentence_vector;
         double sum = 0;
@@ -82,10 +82,10 @@ void lsa_entropy_preprocess(unordered_map<string, word_t*> &lsa_word_vector)
     }
 }
 
-// calculate the context probability and confidence value
-void lsa_cal_confidence_val(unordered_map<string, word_t*> &lsa_word_vector, word_cnt wc, sentence_cnt sc)
+// calculate the confidence value
+void lsa_cal_confidence_val(unordered_map<string, word_t*> &word_vector, word_cnt wc, sentence_cnt sc)
 {
-    for (auto it = lsa_word_vector.begin(); it != lsa_word_vector.end(); ++it) {
+    for (auto it = word_vector.begin(); it != word_vector.end(); ++it) {
         word_t *word_r = it->second;
         unordered_map<uword, double> sentence_vector = word_r->sentence_vector;
         double sum = 0;
@@ -97,7 +97,53 @@ void lsa_cal_confidence_val(unordered_map<string, word_t*> &lsa_word_vector, wor
     }
 }
 
-void lsa_cal_context_prob(unordered_map<string, word_t*> &lsa_word_vector, word_cnt wc, sentence_cnt sc)
+// calculate the context probability
+void lsa_cal_context_prob(unordered_map<string, word_t*> &word_vector, word_cnt wc, sentence_cnt sc, vector<string> context, vector<int> blank, double r)
 {
-
+    int i = 0;
+    // add up all context vectors
+    unordered_map<uword, double> context_vec;
+    for (i = 0; i < context.size(); i++) {
+        if (blank[i] == LSA_SENTENCE_BLANK) {
+            unordered_map<string, word_t*>::const_iterator value = word_vector.find(context[i]);
+            if (value != word_vector.end()) {
+                lsa_word_vector_add(*value->second, context_vec);
+            }
+        }
+    }
+    // calculate each word vector cosine similarity with context.
+    double min = 0;
+    long double sum = 0;
+    std::vector<double> word_cosine_prob;
+    for (auto it = word_vector.begin(); it != word_vector.end(); ++it) {
+        double value = lsa_cosine(*it->second, context_vec);
+        sum += value;
+        word_cosine_prob.push_back(value);
+        if (value < min) {
+            min = value;
+        }
+    }
+    // calculate each word vector cosine similarity with pow r.
+    long double sum_r = 0;
+    for (i = 0; i < word_cosine_prob.size(); i++) {
+        word_cosine_prob[i] = (word_cosine_prob[i] - min) / sum;
+        word_cosine_prob[i] = lsa_pow(word_cosine_prob[i], r);
+        sum_r += word_cosine_prob[i];
+    }
+    
+    i = 0;
+    double temp = 0;
+    while (i < context.size()) {
+        if (blank[i] == LSA_SENTENCE_BLANK) {
+            i++;
+        } else {
+            unordered_map<string, word_t*>::const_iterator value = word_vector.find(context[i]);
+            if (value != word_vector.end()) {
+                // the LSA probability for the word in the blank
+                temp += word_cosine_prob[value->second->wordId] / sum_r;
+                
+            }
+        }
+    }
+    
 }
