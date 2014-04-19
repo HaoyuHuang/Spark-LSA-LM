@@ -10,12 +10,11 @@
 		1851159C18FF9EA500ACA9CF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1851159B18FF9EA500ACA9CF /* main.cpp */; };
 		1851159E18FF9EA500ACA9CF /* Spark_LSA_LM.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1851159D18FF9EA500ACA9CF /* Spark_LSA_LM.1 */; };
 		18AB0C981901B00C00A73F96 /* libarmadillo.4.20.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB0C951901B00C00A73F96 /* libarmadillo.4.20.0.dylib */; };
-		18AB0C991901B00C00A73F96 /* libarmadillo.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB0C961901B00C00A73F96 /* libarmadillo.4.dylib */; };
-		18AB0C9A1901B00C00A73F96 /* libarmadillo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB0C971901B00C00A73F96 /* libarmadillo.dylib */; };
 		18AB0C9D1901DCDE00A73F96 /* lsa_word_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0C9C1901DCDE00A73F96 /* lsa_word_vector.cpp */; };
 		18AB0CA11901E05D00A73F96 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0C9F1901E05D00A73F96 /* utils.cpp */; };
 		18AB0CA81902EE0600A73F96 /* lsa_eval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */; };
 		18AB0CAA1902EE1800A73F96 /* lsa_dev_classify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0CA91902EE1800A73F96 /* lsa_dev_classify.cpp */; };
+		18AB0CAC19030B7400A73F96 /* lsa_ngram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0CAB19030B7400A73F96 /* lsa_ngram.cpp */; };
 		8591B20418FFA75300756057 /* lsa_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8591B20218FFA75300756057 /* lsa_math.cpp */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +38,6 @@
 		185115A418FF9ECC00ACA9CF /* lsa_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_common.h; sourceTree = "<group>"; };
 		185115A518FF9ECC00ACA9CF /* lsa_word_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_word_vector.h; sourceTree = "<group>"; };
 		18AB0C951901B00C00A73F96 /* libarmadillo.4.20.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libarmadillo.4.20.0.dylib; sourceTree = "<group>"; };
-		18AB0C961901B00C00A73F96 /* libarmadillo.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libarmadillo.4.dylib; sourceTree = "<group>"; };
-		18AB0C971901B00C00A73F96 /* libarmadillo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libarmadillo.dylib; sourceTree = "<group>"; };
 		18AB0C9C1901DCDE00A73F96 /* lsa_word_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_word_vector.cpp; sourceTree = "<group>"; };
 		18AB0C9E1901E05D00A73F96 /* fst_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fst_common.h; sourceTree = "<group>"; };
 		18AB0C9F1901E05D00A73F96 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
@@ -51,6 +48,7 @@
 		18AB0CA61902E75D00A73F96 /* lsa_dev_classify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_dev_classify.h; sourceTree = "<group>"; };
 		18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_eval.cpp; sourceTree = "<group>"; };
 		18AB0CA91902EE1800A73F96 /* lsa_dev_classify.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_dev_classify.cpp; sourceTree = "<group>"; };
+		18AB0CAB19030B7400A73F96 /* lsa_ngram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_ngram.cpp; sourceTree = "<group>"; };
 		8591B20218FFA75300756057 /* lsa_math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_math.cpp; sourceTree = "<group>"; };
 		8591B20318FFA75300756057 /* lsa_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_math.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,8 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18AB0C9A1901B00C00A73F96 /* libarmadillo.dylib in Frameworks */,
-				18AB0C991901B00C00A73F96 /* libarmadillo.4.dylib in Frameworks */,
 				18AB0C981901B00C00A73F96 /* libarmadillo.4.20.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,8 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				18AB0C951901B00C00A73F96 /* libarmadillo.4.20.0.dylib */,
-				18AB0C961901B00C00A73F96 /* libarmadillo.4.dylib */,
-				18AB0C971901B00C00A73F96 /* libarmadillo.dylib */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -124,6 +118,7 @@
 		18AB0CA31902327000A73F96 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				18AB0CAB19030B7400A73F96 /* lsa_ngram.cpp */,
 				185115A518FF9ECC00ACA9CF /* lsa_word_vector.h */,
 				18AB0C9C1901DCDE00A73F96 /* lsa_word_vector.cpp */,
 				18AB0CA4190232B200A73F96 /* lsa_ngram.h */,
@@ -188,6 +183,7 @@
 			files = (
 				18AB0CAA1902EE1800A73F96 /* lsa_dev_classify.cpp in Sources */,
 				8591B20418FFA75300756057 /* lsa_math.cpp in Sources */,
+				18AB0CAC19030B7400A73F96 /* lsa_ngram.cpp in Sources */,
 				18AB0CA81902EE0600A73F96 /* lsa_eval.cpp in Sources */,
 				18AB0C9D1901DCDE00A73F96 /* lsa_word_vector.cpp in Sources */,
 				1851159C18FF9EA500ACA9CF /* main.cpp in Sources */,
