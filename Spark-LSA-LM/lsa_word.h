@@ -1,3 +1,6 @@
+#ifndef lsa_word
+#define lsa_word
+
 #include "lsa_common.h"
 #include <unordered_map>
 
@@ -22,8 +25,11 @@ typedef struct lsa_word {
 } word_t;
 
 // load the corpus into lsa_word_vector with key (word) and value(lsa_word).
-int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t*> &word_vector);
+int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t*> &word_vector, word_cnt &word_cnt, sentence_cnt &sentence_cnt);
 // preprocess the lsa word vector by entrophy
-void entrophy_preprocess(unordered_map<string, word_t> &lsa_word_vector);
-// calculate the context probability and confidence value
-void cal_prob(unordered_map<string, word_t> &lsa_word_vector);
+void lsa_entropy_preprocess(unordered_map<string, word_t*> &lsa_word_vector);
+// calculate the confidence value
+void lsa_cal_confidence_val(unordered_map<string, word_t*> &lsa_word_vector, word_cnt wc, sentence_cnt sc);
+// calculate the context probability
+void lsa_cal_context_prob(unordered_map<string, word_t*> &lsa_word_vector, word_cnt wc, sentence_cnt sc);
+#endif

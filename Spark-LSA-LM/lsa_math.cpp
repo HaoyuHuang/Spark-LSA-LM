@@ -28,3 +28,23 @@ double cosine(const word_t &w1, const word_t &w2)
 	double norm2 = cal_norm(w2);
 	return res / (norm1 * norm2);
 }
+
+// load the word vector into armadillo matrix
+mat lsa_word_vector_load(unordered_map<string, word_t*> &lsa_word_vector, word_cnt wc, sentence_cnt sc)
+{
+    return NULL;
+}
+// perform svd operation on the word vector
+void lsa_svd(mat &word_vector)
+{
+    mat U;
+    vec s;
+    mat V;
+    
+    svd(U,s,V,word_vector, "dc");
+}
+
+double lsa_log(double num)
+{
+    return log10(num);
+}
