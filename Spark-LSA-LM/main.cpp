@@ -31,9 +31,9 @@ void svd_example()
 
 int main ()
 {
-    unordered_map<string, word_t> word_vector;
+    unordered_map<string, word_t*> word_vector;
     lsa_word_vector_load("/Users/apple/graduate/Courses/544NLP/Workspace/Spark-LSA-LM/Spark-LSA-LM/text.txt", word_vector);
-    cout << word_vector.find("ern")->second.total_occurance;
+    cout << word_vector.find("ern")->second->total_occurance;
     return 0;
 }
 

@@ -12,7 +12,7 @@
 #include "lsa_common.h"
 
 // load the corpus into lsa_word_vector with key (word) and value(lsa_word).
-int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t> &word_vector)
+int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t *> &word_vector)
 {
     int ret = -1;
     std::string line;
@@ -30,27 +30,27 @@ int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t> &word_
                 continue;
             }
             for (int i = 0; i < words.size(); i++) {
-                unordered_map<string, word_t>::const_iterator value = word_vector.find(words[i]);
-                word_t word_r;
+                unordered_map<string, word_t *>::const_iterator value = word_vector.find(words[i]);
+                word_t *word_r;
                 if (value == word_vector.end()) {
                     // word is not in the word vector
-                    word_r.wordId = n_word;
-                    word_r.total_occurance = 1;
+                    word_r = new word_t;
+                    word_r->wordId = n_word;
+                    word_r->total_occurance = 1;
                     n_word++;
                     word_vector.emplace(words[i], word_r);
                 } else {
                     // the word is in the word vector
                     word_r = value->second;
-                    word_r.total_occurance++;
-                    cout << endl << value->first << " " << word_r.total_occurance << endl;
+                    word_r->total_occurance++;
                 }
-                unordered_map<uword, double>::const_iterator s_vec = word_r.sentence_vector.find(n_line);
-                if (s_vec == word_r.sentence_vector.end()) {
+                unordered_map<uword, double>::const_iterator s_vec = word_r->sentence_vector.find(n_line);
+                if (s_vec == word_r->sentence_vector.end()) {
                     // the sentence is not in the sentence vector
-                    word_r.sentence_vector.emplace(n_line, 1);
+                    word_r->sentence_vector.emplace(n_line, 1);
                 } else {
                     // the sentence is in the sentence vector
-                    word_r.sentence_vector.emplace(s_vec->first, s_vec->second + 1);
+                    word_r->sentence_vector.emplace(s_vec->first, s_vec->second + 1);
                 }
             }
         }

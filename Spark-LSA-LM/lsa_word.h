@@ -22,7 +22,7 @@ typedef struct lsa_word {
 } word_t;
 
 // load the corpus into lsa_word_vector with key (word) and value(lsa_word).
-int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t> &word_vector);
+int lsa_word_vector_load(const char *symfn, unordered_map<string, word_t*> &word_vector);
 // preprocess the lsa word vector by entrophy
 void entrophy_preprocess(unordered_map<string, word_t> &lsa_word_vector);
 // calculate the context probability and confidence value
