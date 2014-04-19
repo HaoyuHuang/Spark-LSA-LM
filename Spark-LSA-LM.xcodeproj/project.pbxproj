@@ -14,6 +14,8 @@
 		18AB0C9A1901B00C00A73F96 /* libarmadillo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB0C971901B00C00A73F96 /* libarmadillo.dylib */; };
 		18AB0C9D1901DCDE00A73F96 /* lsa_word_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0C9C1901DCDE00A73F96 /* lsa_word_vector.cpp */; };
 		18AB0CA11901E05D00A73F96 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0C9F1901E05D00A73F96 /* utils.cpp */; };
+		18AB0CA81902EE0600A73F96 /* lsa_eval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */; };
+		18AB0CAA1902EE1800A73F96 /* lsa_dev_classify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB0CA91902EE1800A73F96 /* lsa_dev_classify.cpp */; };
 		8591B20418FFA75300756057 /* lsa_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8591B20218FFA75300756057 /* lsa_math.cpp */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		18AB0CA4190232B200A73F96 /* lsa_ngram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lsa_ngram.h; sourceTree = "<group>"; };
 		18AB0CA51902E43C00A73F96 /* lsa_eval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_eval.h; sourceTree = "<group>"; };
 		18AB0CA61902E75D00A73F96 /* lsa_dev_classify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_dev_classify.h; sourceTree = "<group>"; };
+		18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_eval.cpp; sourceTree = "<group>"; };
+		18AB0CA91902EE1800A73F96 /* lsa_dev_classify.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_dev_classify.cpp; sourceTree = "<group>"; };
 		8591B20218FFA75300756057 /* lsa_math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_math.cpp; sourceTree = "<group>"; };
 		8591B20318FFA75300756057 /* lsa_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_math.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +129,8 @@
 				18AB0CA4190232B200A73F96 /* lsa_ngram.h */,
 				18AB0CA51902E43C00A73F96 /* lsa_eval.h */,
 				18AB0CA61902E75D00A73F96 /* lsa_dev_classify.h */,
+				18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */,
+				18AB0CA91902EE1800A73F96 /* lsa_dev_classify.cpp */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -180,7 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18AB0CAA1902EE1800A73F96 /* lsa_dev_classify.cpp in Sources */,
 				8591B20418FFA75300756057 /* lsa_math.cpp in Sources */,
+				18AB0CA81902EE0600A73F96 /* lsa_eval.cpp in Sources */,
 				18AB0C9D1901DCDE00A73F96 /* lsa_word_vector.cpp in Sources */,
 				1851159C18FF9EA500ACA9CF /* main.cpp in Sources */,
 				18AB0CA11901E05D00A73F96 /* utils.cpp in Sources */,

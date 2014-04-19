@@ -17,6 +17,7 @@ void lsa_word_vector_add(const word_t &w1, unordered_map<uword, double> &sum);
 
 // load the word vector into armadillo matrix
 mat lsa_word_vector_load(unordered_map<string, word_t*> &word_vector, word_cnt wc, sentence_cnt sc);
+
 // perform svd operation on the word vector
 void lsa_svd(mat &word_vector);
 

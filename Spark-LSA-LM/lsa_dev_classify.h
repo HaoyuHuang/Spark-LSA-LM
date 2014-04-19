@@ -3,7 +3,7 @@
 //  Spark-LSA-LM
 //
 //  Created by Haoyu Huang on 4/19/14.
-//  Copyright (c) 2014 HaoyuHuang. All rights reserved.
+//  Copyright (c) 2014 Spark. All rights reserved.
 //
 
 #ifndef Spark_LSA_LM_lsa_dev_classify_h
