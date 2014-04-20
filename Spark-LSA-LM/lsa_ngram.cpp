@@ -28,7 +28,7 @@ int lsa_ngram_load(const char *symbfn, vector<unordered_map<std::string, double>
             while (i < str.length() && str[i] != '=')
                 i++;
             i++;
-            uword num = 0;
+            
             */
         }
         for (int i = 1; i  <= max_order; i++) {
