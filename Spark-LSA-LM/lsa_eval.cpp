@@ -46,8 +46,8 @@ double lsa_eval_sentence_accuracy(std::vector<gre_ans_t> correct, std::vector<gr
         }
         if (t) {
             correct_ans++;
-            t = true;
         }
+        t = true;
         total_ans++;
     }
     return correct_ans / total_ans;

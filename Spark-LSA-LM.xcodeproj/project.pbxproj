@@ -49,6 +49,7 @@
 		18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_eval.cpp; sourceTree = "<group>"; };
 		18AB0CA91902EE1800A73F96 /* lsa_dev_classify.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_dev_classify.cpp; sourceTree = "<group>"; };
 		18AB0CAB19030B7400A73F96 /* lsa_ngram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_ngram.cpp; sourceTree = "<group>"; };
+		18AB0CAD19030DF700A73F96 /* GREVerbal.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GREVerbal.txt; sourceTree = "<group>"; };
 		8591B20218FFA75300756057 /* lsa_math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsa_math.cpp; sourceTree = "<group>"; };
 		8591B20318FFA75300756057 /* lsa_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsa_math.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +85,7 @@
 		1851159A18FF9EA500ACA9CF /* Spark-LSA-LM */ = {
 			isa = PBXGroup;
 			children = (
+				18AB0CAD19030DF700A73F96 /* GREVerbal.txt */,
 				18AB0CA31902327000A73F96 /* model */,
 				18AB0CA21901F3A400A73F96 /* text.txt */,
 				18AB0C9B1901B01100A73F96 /* libs */,
@@ -118,14 +120,14 @@
 		18AB0CA31902327000A73F96 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				18AB0CAB19030B7400A73F96 /* lsa_ngram.cpp */,
-				185115A518FF9ECC00ACA9CF /* lsa_word_vector.h */,
-				18AB0C9C1901DCDE00A73F96 /* lsa_word_vector.cpp */,
 				18AB0CA4190232B200A73F96 /* lsa_ngram.h */,
+				185115A518FF9ECC00ACA9CF /* lsa_word_vector.h */,
 				18AB0CA51902E43C00A73F96 /* lsa_eval.h */,
 				18AB0CA61902E75D00A73F96 /* lsa_dev_classify.h */,
-				18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */,
+				18AB0C9C1901DCDE00A73F96 /* lsa_word_vector.cpp */,
 				18AB0CA91902EE1800A73F96 /* lsa_dev_classify.cpp */,
+				18AB0CA71902EE0600A73F96 /* lsa_eval.cpp */,
+				18AB0CAB19030B7400A73F96 /* lsa_ngram.cpp */,
 			);
 			name = model;
 			sourceTree = "<group>";

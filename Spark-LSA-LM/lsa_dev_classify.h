@@ -37,7 +37,7 @@ typedef struct gre_sentence_completion_task {
 } gre_sc_t;
 
 // load the development set
-void lsa_dev_load(char *symfn, std::vector<gre_sc_t> &tasks);
+int lsa_dev_load(char *symfn, std::vector<gre_sc_t> &tasks);
 
 // classify the development set using LSA language model
 void lsa_lm_dev_classify(std::vector<gre_sc_t> &tasks, std::vector<gre_ans_t> &result);
